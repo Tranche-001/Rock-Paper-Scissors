@@ -10,6 +10,17 @@
     function getComputerChoice(){
       let randomChoice = Math.floor(Math.random()*3)
 
+      switch (randomChoice){
+        case 0:
+          randomChoice = "rock"
+          break;
+        case 1:
+          randomChoice = "paper"
+          break;
+        case 2:
+          randomChoice = "scissors"
+          break;
+      }
       return randomChoice;
     }
   
@@ -17,9 +28,37 @@
       let humanChoice = prompt("Choose 0:rock 1:paper 2:scissors")
       return humanChoice;
     }
-
     
-  
+    let humanScore = 0
+    let computerScore = 0
+
+    function playRound(humanChoice, computerChoice){
+      humanChoice = humanChoice.toLowerCase()
+      if(humanChoice == "rock" && computerChoice == "scissors"){
+        humanScore++
+        return "You won, rock beats scissors!"
+      }
+      else if(humanChoice == "paper" && computerChoice == "rock"){
+        humanScore++
+        return "You won, paper beats rock!"
+      }
+      else if(humanChoice == "scissors" && computerChoice == "paper"){
+        humanScore++
+        return "You won, scissors beats paper!"
+      }
+      else{
+        computerScore++
+        return "YOU LOST"
+      }
+
+
+
+
+    }
+    
+    
+
+
   </script>
 </body>
 </html>
