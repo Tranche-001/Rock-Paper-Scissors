@@ -25,11 +25,12 @@
     }
   
     function getHumanChoice(){
-      let humanChoice = prompt("Choose 0:rock 1:paper 2:scissors")
+      let humanChoice = prompt("Choose rock, paper, or scissors")
       return humanChoice;
     }
     
-
+    let humanScore = 0
+    let computerScore = 0
 
     function playRound(humanChoice, computerChoice){
       humanChoice = humanChoice.toLowerCase()
@@ -57,30 +58,29 @@
         computerScore++
         return "You lost, scissors beats paper!"
       }
+      else if(computerChoice == humanChoice){
+        return "Tie!"
+      }
     }
 
     function playGame(){
       let rounds = 0;
 
-      let humanScore = 0
-      let computerScore = 0
+    
 
       while(rounds < 5){
         const humanSelection = getHumanChoice()
         const computerSelection = getComputerChoice()
-        playRound(humanSelection, computerSelection);
+        console.log(playRound(humanSelection, computerSelection));
         rounds++;
-        print("Human: " + humanScore)
-        print("Computer: " + computerScore)
+        console.log("Human: " + humanScore)
+        console.log("Computer: " + computerScore)
       }
 
 
     }
     
-    const humanSelection = getHumanChoice()
-    const computerSelection = getComputerChoice()
-
-    console.log(playRound(humanSelection, computerSelection))
+  playGame()
 
 
   </script>
