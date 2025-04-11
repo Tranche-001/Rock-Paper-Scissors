@@ -6,7 +6,25 @@
   <title>Document</title>
 </head>
 <body>
+
+  <button id="rock">
+    👊
+  </button>
+  <button id="paper">
+    🖐️
+  </button>
+  <button id="scissors">
+    ✌️
+  </button>
+
+
   <script>
+
+const btnRock = document.querySelector("#rock");
+const btnPaper = document.querySelector("#paper");
+const btnScissors = document.querySelector("#scissors");
+
+
     function getComputerChoice(){
       let randomChoice = Math.floor(Math.random()*3)
 
@@ -63,29 +81,51 @@
       let computerScore = 0;
     
 
-      while(rounds < 5){
-        const humanSelection = getHumanChoice()
-        const computerSelection = getComputerChoice()
-        let answer = playRound(humanSelection, computerSelection);
-        if(answer == "Tie!"){
-        }
-        else if(answer.includes("won")){
-          humanScore++;
-        }
-        else{
-          computerScore++;
-        }
-        rounds++;
-        console.log("Human: " + humanScore)
-        console.log("Computer: " + computerScore)
+    
+      const humanSelection = getHumanChoice()
+      const computerSelection = getComputerChoice()
+      let answer = playRound(humanSelection, computerSelection);
+      if(answer == "Tie!"){
       }
+      else if(answer.includes("won")){
+        humanScore++;
+      }
+      else{
+        computerScore++;
+      }
+      rounds++;
+      console.log("Human: " + humanScore)
+      console.log("Computer: " + computerScore)
+    
 
 
     }
     
-  playGame()
+ // playGame()
+
+
+//-------------------------------
+
+
+
+
+btnRock.addEventListener("click", (e) => {
+  console.log("A")
+  alert(playRound("rock", getComputerChoice()));
+})
+btnPaper.addEventListener("click", (e) => {
+  console.log("B")
+  alert(playRound("paper", getComputerChoice()));
+})
+btnScissors.addEventListener("click", (e) => {
+  
+
+  alert(playRound("scissors", getComputerChoice()));
+})
 
 
   </script>
+
+
 </body>
 </html>
